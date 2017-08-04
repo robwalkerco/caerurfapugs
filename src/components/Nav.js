@@ -11,10 +11,10 @@ const Nav = () => (
   <NavWrapper>
     <MainNavItem to="/">Home</MainNavItem>
     <MainNavItem to="/our-pugs">Our Pugs</MainNavItem>
-    <MainNavItem to="/pug-puppies-for-sale.php">Puppies for sale</MainNavItem>
-    <MainNavItem to="/stud.php">Stud</MainNavItem>
-    <MainNavItem to="/looking-after-a-pug.php">Looking after a pug</MainNavItem>
-    <MainNavItem to="/contact-us.php">Contact Us</MainNavItem>
+    <MainNavItem to="/pug-puppies-for-sale">Puppies for sale</MainNavItem>
+    <MainNavItem to="/stud">Stud</MainNavItem>
+    <MainNavItem to="/Looking-after-a-pug">Looking after a pug</MainNavItem>
+    <MainNavItem to="/contact-us">Contact Us</MainNavItem>
   </NavWrapper>
 )
 

@@ -13,7 +13,7 @@ const IndexPage = () => (
 
       <p>Please get in touch if you are interested in finding out more about them.</p>
 
-      <p>View our <Link to="/pug-puppies-for-sale.php">Puppies for sale</Link> page to see
+      <p>View our <Link to="/pug-puppies-for-sale">Puppies for sale</Link> page to see
       some photos of some of our previous Pug Puppy litters.</p>
     </Alert>
 
@@ -50,11 +50,11 @@ const IndexPage = () => (
     </Image>
 
     <p>There is more information on each of our <Link to="/our-pugs">Pugs</Link> on this
-    site, as well as details of any <Link to="/pug-puppies-for-sale.php">puppies</Link> that
+    site, as well as details of any <Link to="/pug-puppies-for-sale">puppies</Link> that
     we have available for sale. We also have more information on <Link to=
-    "/looking-after-a-pug.php">looking after Pugs</Link>. If you want to find out anything
+    "/Looking-after-a-pug">looking after Pugs</Link>. If you want to find out anything
     else about our Pugs and Puppies, or Pugs in general, you can find contact details
-    on the <Link to="contact-us.php">contact us</Link> page.</p>
+    on the <Link to="contact-us">contact us</Link> page.</p>
   </div>
 )
 
