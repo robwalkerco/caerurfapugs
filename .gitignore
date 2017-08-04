@@ -5,4 +5,5 @@ node_modules
 # Build directory
 public/*
 !public/static
+!public/ROUTER
 .DS_Store
