@@ -6,4 +6,5 @@ node_modules
 public/*
 !public/static
 !public/ROUTER
+!public/CNAME
 .DS_Store
