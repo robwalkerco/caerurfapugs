@@ -16,8 +16,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "build": "find public/ -not -regex '.*\/static' -not -regex '.*\/static\/.*' -not -regex '.*CNAME' -not -name 'public' -print0 | xargs -0 rm  -rf --",
     "develop": "gatsby develop",
+    "deploy": "surge public/",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
