@@ -42,35 +42,37 @@ class MailingList extends React.Component {
 
       <Form action="https://api.caerurfapugs.co.uk/mailinglist" method="post">
         <table width="100%">
-          <tr>
-            <td>
-              <p>Name:</p>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <p>Name:</p>
+              </td>
+            </tr>
 
-          <tr>
-            <td align="center">
-              <input type="text" name="name" size="30" value="" />
-            </td>
-          </tr>
+            <tr>
+              <td>
+                <input type="text" name="name" size="30" value="" />
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              <p>E-mail:</p>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                <p>E-mail:</p>
+              </td>
+            </tr>
 
-          <tr>
-            <td align="center"><input type="text" name="email" size="30" value="" /></td>
-          </tr>
+            <tr>
+              <td><input type="text" name="email" size="30" value="" /></td>
+            </tr>
 
-          <tr>
-            <td>
-              <input type="hidden" name="verification" value={this.state.jsLoaded} />
+            <tr>
+              <td>
+                <input type="hidden" name="verification" value={this.state.jsLoaded} />
 
-              <input type="submit" name="submit" value="Join the email list" />
-            </td>
-          </tr>
+                <input type="submit" name="submit" value="Join the email list" />
+              </td>
+            </tr>
+          </tbody>
         </table>
       </Form>
 

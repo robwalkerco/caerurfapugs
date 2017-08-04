@@ -29,7 +29,7 @@ const PageContainerTop = Container.extend`
 `
 
 const PageContainerBottom = Container.extend`
-  background: #F7EBDD url(../images/curvebottom.gif) bottom right no-repeat;
+  background: #F7EBDD url(/static/curvebottom.gif) bottom right no-repeat;
   height: 60px;
 `
 
@@ -56,10 +56,6 @@ const Column = styled.article`
   ${props => props.small && `
     width: 220px;
   `}
-`
-const FooterCurve = styled.div`
-  background: #F7EBDD url(/static/curvebottom.gif) bottom right no-repeat;
-  height: 60px;
 `
 
 const FooterText = styled.p`
@@ -98,21 +94,19 @@ const TemplateWrapper = ({
       </PageContainerTop>
 
       <PageContainerBottom>
-        <FooterCurve>
-          <Column full>
-            <NavBottom />
+        <Column full>
+          <NavBottom />
 
-            <FooterText>
-              Caerurfa Pugs &copy; 2008-{new Date().getFullYear()} Nothing from this web site may be reproduced in any way without written permission.
-            </FooterText>
+          <FooterText>
+            Caerurfa Pugs &copy; 2008-{new Date().getFullYear()} Nothing from this web site may be reproduced in any way without written permission.
+          </FooterText>
 
-            <FooterText>
-              Website managed and hosted by <Link to="http://robwalker.co" target="_blank" title="robwalker.co">Rob Walker</Link>
-            </FooterText>
-          </Column>
+          <FooterText>
+            Created by <Link to="http://robwalker.co" target="_blank" title="robwalker.co">Rob Walker</Link> and powered by <Link to="https://www.gatsbyjs.org" target="_blank" title="Gatsbyjs">Gatsbyjs</Link>, <Link to="https://serverless.com/" target="_blank" title="Serverless">Serverless</Link> and <Link to="https://surge.sh/" target="_blank" title="surge.sh">Surge.sh</Link>
+          </FooterText>
+        </Column>
 
-          <Clear />
-        </FooterCurve>
+        <Clear />
       </PageContainerBottom>
     </Wrapper>
   </div>

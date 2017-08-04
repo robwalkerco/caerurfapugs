@@ -49,7 +49,7 @@ const IndexPage = () => (
       <p>Three of the pug puppies from our first litter</p>
     </Image>
 
-    <p>There is more information on each of our <Link to="/our-pugs.php">Pugs</Link> on this
+    <p>There is more information on each of our <Link to="/our-pugs">Pugs</Link> on this
     site, as well as details of any <Link to="/pug-puppies-for-sale.php">puppies</Link> that
     we have available for sale. We also have more information on <Link to=
     "/looking-after-a-pug.php">looking after Pugs</Link>. If you want to find out anything

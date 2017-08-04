@@ -10,7 +10,7 @@ const NavWrapper = styled.div`
 const Nav = () => (
   <NavWrapper>
     <MainNavItem to="/">Home</MainNavItem>
-    <MainNavItem to="/our-pugs.php">Our Pugs</MainNavItem>
+    <MainNavItem to="/our-pugs">Our Pugs</MainNavItem>
     <MainNavItem to="/pug-puppies-for-sale.php">Puppies for sale</MainNavItem>
     <MainNavItem to="/stud.php">Stud</MainNavItem>
     <MainNavItem to="/looking-after-a-pug.php">Looking after a pug</MainNavItem>

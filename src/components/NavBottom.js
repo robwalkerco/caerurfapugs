@@ -5,7 +5,7 @@ import { FooterNavItem } from './NavItem'
 const NavBottom = () => (
   <div>
     <FooterNavItem to="/" class="nav1">Home</FooterNavItem>
-    <FooterNavItem to="/our-pugs.php" class="nav2">Our Pugs</FooterNavItem>
+    <FooterNavItem to="/our-pugs" class="nav2">Our Pugs</FooterNavItem>
     <FooterNavItem to="/pug-puppies-for-sale.php" class="nav3">Pug Puppies for sale</FooterNavItem>
     <FooterNavItem to="/stud.php" class="nav4">Stud</FooterNavItem>
     <FooterNavItem to="/looking-after-a-pug.php" class="nav5">Looking after a pug</FooterNavItem>
