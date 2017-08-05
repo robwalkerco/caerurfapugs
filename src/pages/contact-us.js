@@ -3,6 +3,12 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Alert from '../components/Alert'
 import Image from '../components/Image'
+import Label from '../components/Label'
+import Input from '../components/Input'
+import Textarea from '../components/Textarea'
+import SubmitButton from '../components/SubmitButton'
+import ErrorMessage from '../components/ErrorMessage'
+import SuccessMessage from '../components/SuccessMessage'
 
 const AddressLine = styled.p`
   padding: 0 4px;
@@ -11,16 +17,54 @@ const AddressLine = styled.p`
 class ContactUs extends React.Component {
   constructor() {
     super()
+
     this.state = {
-      jsLoaded: false,
+      name: '',
+      email: '',
+      message: '',
+      submitting: false,
+      success: null,
     }
   }
 
-  componentDidMount = () => {
+  handleChange = (event) =>
     this.setState({
-      jsLoaded: true,
+      [event.target.name]: event.target.value,
     })
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      submitting: true,
+    })
+
+    fetch('http://api.caerurfapugs.co.uk/enquiry/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message,
+      })
+    })
+    .then(() =>
+      this.setState({
+        success: true,
+        submitting: false,
+      })
+    )
+    .catch(() =>
+      this.setState({
+        success: false,
+        submitting: false,
+      })
+    )
   }
+
 
   render = () => (
     <div>
@@ -28,38 +72,50 @@ class ContactUs extends React.Component {
   		<p>If you are interested in any of our pug puppies, or want to ask us anything about pugs, please contact us. You can use the contact form or our contact details at the bottom on the page.</p>
   		<h4>Enquiry Form</h4>
 
-      <form action="https://api.caerurfapugs.co.uk/contact" method="POST">
-        <table>
-          <tbody>
-            <tr>
-              <td width="15%"><p>Name:</p></td>
-              <td width="80%"><input type="text" name="name" size="30" value="" /></td>
-            </tr>
-            <tr>
-              <td width="15%"><p>E-mail:</p></td>
-              <td width="80%"><input type="text" name="email" size="30" value="" /></td>
-            </tr>
-            <tr>
-              <td width="15%"><p>Subject:</p></td>
-              <td width="80%"><input type="text" name="subject" size="30" value="Web Enquiry" /></td>
-            </tr>
-            <tr>
-              <td valign="top" width="20%"><p>Message:</p></td>
-              <td width="80%">
-                <textarea cols="45" rows="5" name="message" />
-              </td>
-            </tr>
-            <tr>
-              <td width="20%">&nbsp;</td>
-              <td width="80%">
-                <input type="hidden" name="verification" value={this.state.jsLoaded} />
-                <input type="submit" name="submit" value="Send Mail" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-      <p>We will try to reply to all messages within a day, but for urgent messages please call us.</p>
+      {this.state.success !== true && (
+        <form onSubmit={event => this.handleSubmit(event)}>
+          <Label>Name:</Label>
+          <Input
+            type="text"
+            name="name"
+            required
+            disabled={this.state.submitting}
+            value={this.state.name}
+            onChange={event => this.handleChange(event)}
+          />
+
+          <Label>Email:</Label>
+          <Input
+            type="email"
+            name="email"
+            required
+            disabled={this.state.submitting}
+            value={this.state.email}
+            onChange={event => this.handleChange(event)}
+          />
+
+          <Label>Message:</Label>
+          <Textarea
+            type="email"
+            name="message"
+            required
+            disabled={this.state.submitting}
+            value={this.state.message}
+            onChange={event => this.handleChange(event)}
+          />
+
+          {!this.state.submitting && <SubmitButton type="submit">Send enquiry</SubmitButton>}
+          {this.state.submitting && <SubmitButton disabled type="submit">Submitting...</SubmitButton>}
+
+          {this.state.success === false && (
+            <ErrorMessage>Sorry, something went wrong. Please try again.</ErrorMessage>
+          )}
+        </form>
+      )}
+
+      {this.state.success === true && (
+        <SuccessMessage>Success! We have received your enquiry and will reply as soon as possible.</SuccessMessage>
+      )}
 
     	<h4>Contact Details</h4>
     	<p>Feel free to contact us directly using the details below.</p>

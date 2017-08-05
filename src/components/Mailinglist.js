@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Label from './Label'
+import Input from './Input'
+import SubmitButton from './SubmitButton'
+import ErrorMessage from './ErrorMessage'
+import SuccessMessage from './SuccessMessage'
 
 const MailingListContainer = styled.div`
   border: #000000 1px solid;
@@ -23,15 +28,50 @@ const Form = styled.form`
 class MailingList extends React.Component {
   constructor() {
     super()
+
     this.state = {
-      jsLoaded: false,
+      name: '',
+      email: '',
+      submitting: false,
+      success: null,
     }
   }
 
-  componentDidMount = () => {
+  handleChange = (event) =>
     this.setState({
-      jsLoaded: true,
+      [event.target.name]: event.target.value,
     })
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      submitting: true,
+    })
+
+    fetch('http://api.caerurfapugs.co.uk/mailinglist/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+      })
+    })
+    .then(() =>
+      this.setState({
+        success: true,
+        submitting: false,
+      })
+    )
+    .catch(() =>
+      this.setState({
+        success: false,
+        submitting: false,
+      })
+    )
   }
 
   render = () => (
@@ -40,44 +80,44 @@ class MailingList extends React.Component {
 
       <p>Join our mailing list and we will tell you when we have pugs for sale</p>
 
-      <Form action="https://api.caerurfapugs.co.uk/mailinglist" method="post">
-        <table width="100%">
-          <tbody>
-            <tr>
-              <td>
-                <p>Name:</p>
-              </td>
-            </tr>
+      {this.state.success !== true && (
+        <Form onSubmit={event => this.handleSubmit(event)}>
+          <Label>Name:</Label>
+          <Input
+            type="text"
+            name="name"
+            required
+            disabled={this.state.submitting}
+            value={this.state.name}
+            onChange={event => this.handleChange(event)}
+          />
 
-            <tr>
-              <td>
-                <input type="text" name="name" size="30" value="" />
-              </td>
-            </tr>
+          <Label>Email:</Label>
+          <Input
+            type="email"
+            name="email"
+            required
+            disabled={this.state.submitting}
+            value={this.state.email}
+            onChange={event => this.handleChange(event)}
+          />
 
-            <tr>
-              <td>
-                <p>E-mail:</p>
-              </td>
-            </tr>
+          {!this.state.submitting && <SubmitButton type="submit">Join the email list</SubmitButton>}
+          {this.state.submitting && <SubmitButton disabled type="submit">Submitting...</SubmitButton>}
 
-            <tr>
-              <td><input type="text" name="email" size="30" value="" /></td>
-            </tr>
+          {this.state.success === false && (
+            <ErrorMessage>Sorry, something went wrong. Please try again.</ErrorMessage>
+          )}
 
-            <tr>
-              <td>
-                <input type="hidden" name="verification" value={this.state.jsLoaded} />
+          <SmallText>We promise to keep your email address secret and safe, and only
+          ever to sent you email regarding our pug puppies.</SmallText>
+        </Form>
+      )}
 
-                <input type="submit" name="submit" value="Join the email list" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </Form>
+      {this.state.success === true && (
+        <SuccessMessage>Success! We have received your details.</SuccessMessage>
+      )}
 
-      <SmallText>We promise to keep your email address secret and safe, and only
-      ever to sent you email regarding our pug puppies.</SmallText>
     </MailingListContainer>
   )
 }
