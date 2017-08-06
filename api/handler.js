@@ -40,7 +40,7 @@ module.exports.mailinglist = (event, context, callback) => {
         null,
         {
           statusCode: error ? 500 : 200,
-          body: JSON.stringify({})
+          body: '',
         }
       )
   )
