@@ -1,13 +1,26 @@
-# gatsby-starter-default
-The default Gatsby starter
+# www.caerurfapugs.co.uk
+TThe Caerurfa Pugs Website
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
-
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
-```
+Powered by (https://www.gatsbyjs.org)[Gatsbyjs] and (https://serverless.com)[Serverless]
 
 ## Deploy
+The following will clean the public folder, build Gatsbyjs, deploy to surge.sh and deploy to the production serverless stage.
+```
+npm run deploy
+```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Working with Serverless
+(https://serverless.com/framework/docs/providers/aws/cli-reference/)[Serverless Docs]
+
+### Deploy the project to develop
+```
+serverless deploy
+```
+
+### Deploy a single function to develop (faster)
+```
+serverless deploy function --function {function name}
+```
+
+### Testing
+Functions can be best tested from the API Gateway console, to ensure the data Lambda receives is accurate.
