@@ -1,5 +1,5 @@
 # www.caerurfapugs.co.uk
-TThe Caerurfa Pugs Website
+The Caerurfa Pugs Website
 
 Powered by [Gatsbyjs](https://www.gatsbyjs.org), [Serverless](https://serverless.com) and [Surge.sh](https://surge.sh)
 
