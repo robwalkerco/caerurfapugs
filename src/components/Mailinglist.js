@@ -49,12 +49,13 @@ class MailingList extends React.Component {
       submitting: true,
     })
 
-    fetch('http://api.caerurfapugs.co.uk/mailinglist/', {
+    fetch(`${process.env.API_URL}/mailinglist`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
       },
+      credentials: 'same-origin',
+      mode: 'no-cors',
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,

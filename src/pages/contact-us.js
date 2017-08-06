@@ -39,12 +39,13 @@ class ContactUs extends React.Component {
       submitting: true,
     })
 
-    fetch('http://api.caerurfapugs.co.uk/enquiry/', {
+    fetch(`${process.env.API_URL}/enquiry/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
       },
+      credentials: 'same-origin',
+      mode: 'no-cors',
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
