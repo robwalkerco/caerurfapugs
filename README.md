@@ -1,7 +1,7 @@
 # www.caerurfapugs.co.uk
 TThe Caerurfa Pugs Website
 
-Powered by (https://www.gatsbyjs.org)[Gatsbyjs] and (https://serverless.com)[Serverless]
+Powered by [Gatsbyjs](https://www.gatsbyjs.org) and [Serverless](https://serverless.com)
 
 ## Deploy
 The following will clean the public folder, build Gatsbyjs, deploy to surge.sh and deploy to the production serverless stage.
@@ -10,7 +10,7 @@ npm run deploy
 ```
 
 ## Working with Serverless
-(https://serverless.com/framework/docs/providers/aws/cli-reference/)[Serverless Docs]
+[Serverless Docs](https://serverless.com/framework/docs/providers/aws/cli-reference/)
 
 ### Deploy the project to develop
 ```
