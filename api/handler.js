@@ -35,11 +35,11 @@ module.exports.mailinglist = (event, context, callback) => {
       subject: 'New email for email list',
       message: `${body.name} would like to add their email address to the mailing list.\n\nTheir email address is - ${body.email}`
     },
-    () =>
+    error =>
       callback(
         null,
         {
-          statusCode: 200,
+          statusCode: error ? 500 : 200,
           body: JSON.stringify({})
         }
       )
@@ -54,12 +54,12 @@ module.exports.enquiry = (event, context, callback) => {
       subject: 'Email enquiry',
       message: `Name: ${body.name}\n\nEmail: ${body.name}\n\nMessage: ${body.message}`
     },
-    () =>
+    error =>
       callback(
         null,
         {
-          statusCode: 200,
-          body: JSON.stringify({})
+          statusCode: error ? 500 : 200,
+          body: '',
         }
       )
   )
