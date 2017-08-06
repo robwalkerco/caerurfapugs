@@ -17,7 +17,7 @@
   "scripts": {
     "build": "find public/ -not -regex '.*/static' -not -regex '.*/static/.*' -not -regex '.*CNAME' -not -name 'public' -print0 | xargs -0 rm  -rf -- && gatsby build",
     "develop": "gatsby develop",
-    "deploy": "npm run build && surge public/ && ( cd api && serverless deploy --state production)",
+    "deploy": "npm run build && surge public/ && ( cd api && serverless deploy --stage production)",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
