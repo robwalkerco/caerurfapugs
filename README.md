@@ -1,7 +1,7 @@
 # www.caerurfapugs.co.uk
 TThe Caerurfa Pugs Website
 
-Powered by [Gatsbyjs](https://www.gatsbyjs.org) and [Serverless](https://serverless.com)
+Powered by [Gatsbyjs](https://www.gatsbyjs.org), [Serverless](https://serverless.com) and [Surge.sh](https://surge.sh)
 
 ## Deploy
 The following will clean the public folder, build Gatsbyjs, deploy to surge.sh and deploy to the production serverless stage.
