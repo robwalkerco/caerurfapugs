@@ -3,6 +3,12 @@ The Caerurfa Pugs Website
 
 Powered by [Gatsbyjs](https://www.gatsbyjs.org), [Serverless](https://serverless.com) and [Surge.sh](https://surge.sh)
 
+## Develop
+The following will run gatsbty develop.
+```
+npm run develop
+```
+
 ## Deploy
 The following will clean the public folder, build Gatsbyjs, deploy to surge.sh and deploy to the production serverless stage.
 ```
