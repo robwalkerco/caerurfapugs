@@ -38,6 +38,6 @@ jobs:
 
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn run deploy
+            if [ "${CIRCLE_BRANCH}" == "master" ];
+              then yarn run deploy;
             fi
