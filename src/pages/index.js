@@ -52,7 +52,7 @@ const IndexPage = () => (
     <p>There is more information on each of our <Link to="/our-pugs">Pugs</Link> on this
     site, as well as details of any <Link to="/pug-puppies-for-sale">puppies</Link> that
     we have available for sale. We also have more information on <Link to=
-    "/Looking-after-a-pug">looking after Pugs</Link>. If you want to find out anything
+    "/looking-after-a-pug">looking after Pugs</Link>. If you want to find out anything
     else about our Pugs and Puppies, or Pugs in general, you can find contact details
     on the <Link to="contact-us">contact us</Link> page.</p>
   </div>
