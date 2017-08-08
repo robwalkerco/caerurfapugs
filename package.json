@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "caerurfapugs",
+  "description": "www.caerurfapugs.co.uk",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Rob Walker <hi@robwalker.co>",
   "dependencies": {
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.0.1",
